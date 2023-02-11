@@ -69,20 +69,21 @@ class CustomArrayListTest {
 
 	@Test()
 	void should_return_out_of_bounds_adding_item() {
-		
+
 		try {
 			CustomList<Integer> sut = new CustomArrayList<>();
 
 			for (int i = 1; i < 22; i++) {
 				sut.add(i);
 			}
-		sut.add(27, 15);
-		fail("Should throw IndexOutOFBoundsException");
-		}catch (IndexOutOfBoundsException e) {
+			sut.add(27, 15);
+			fail("Should throw IndexOutOFBoundsException");
+		} catch (IndexOutOfBoundsException e) {
 			assertEquals(e.getMessage(), "Adding item at index : 27 is out of Bounds");
 		}
-		
+
 	}
+
 	@Test
 	void should_remove_item_at_given_index() {
 		CustomList<Integer> sut = new CustomArrayList<>();
@@ -92,22 +93,22 @@ class CustomArrayListTest {
 		}
 		Integer removeItem = sut.remove(8);
 
-		assertEquals(9, removeItem );
-		
+		assertEquals(9, removeItem);
+
 	}
+
 	@Test
 	void should_return_out_of_bounds_removing_item() {
-		try{
+		try {
 			CustomList<Integer> sut = new CustomArrayList<>();
-		
 
-		for (int i = 1; i < 22; i++) {
-			sut.add(i);
+			for (int i = 1; i < 22; i++) {
+				sut.add(i);
+			}
+			sut.remove(25);
+			fail("Should throw IndexOutOfBoundsException");
+		} catch (IndexOutOfBoundsException e) {
+			assertEquals(e.getMessage(), "Item at index : 25 is out of Bounds ");
 		}
-		sut.remove(25);
-		fail("Should throw IndexOutOfBoundsException");
-	}catch (IndexOutOfBoundsException e) {
-		assertEquals(e.getMessage(), "Item at index : 25 is out of Bounds " );
-	}
 	}
 }

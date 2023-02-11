@@ -58,7 +58,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T remove(int index)throws IndexOutOfBoundsException{
 		if(index >= size) {
-			throw new IndexOutOfBoundsException( "Item at index : " + index + " is out of Bounds ");
+			throw new IndexOutOfBoundsException("Item at index : " + index + " is out of Bounds ");
 		}
 		T removedItem = (T) items[index];
 		
